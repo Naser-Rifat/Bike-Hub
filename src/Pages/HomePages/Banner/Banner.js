@@ -27,7 +27,7 @@ const Banner = () => {
                     <div style={{ height: "600px" }} className="d-flex justify-content-start align-items-center ">
                         <div>
                             <NavLink to="/explore" style={{ textDecoration: "none" }}>
-                                <Button className="px-5" style={{ background: "#7362F9" }} variant="contained"> Explore</Button>
+                                <Button className="p-2 px-5" style={{ color: "black", fontSize: "18px", background: "#E74C3C" }} variant="contained"> Explore</Button>
                             </NavLink>
 
                         </div>

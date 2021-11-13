@@ -7,18 +7,16 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { Navbar } from 'react-bootstrap';
 
 const Navigation = () => {
-    const { user, logOut, setSuccess } = useAuth();
+    const { user, logOut } = useAuth();
 
-    // const handleLogin = () => {
-    //     setSuccess(false)
-    // }
 
     return (
         <div>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar style={{ background: "black", padding: "10px" }} position="static">
+                <AppBar style={{ background: "black", paddingBottom: "20px" }} position="static">
                     <Toolbar>
                         <IconButton
                             size="large"
@@ -31,9 +29,8 @@ const Navigation = () => {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             News
                         </Typography>
-                        <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Home</Button></NavLink>
-                        <NavLink to="/explore" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Explore</Button></NavLink>
-                        <NavLink to="/addproducts" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Add Products</Button></NavLink>
+                        <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }} >Home</Button></NavLink>
+
                         <NavLink to="/dashboard" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Dashboard</Button></NavLink>
 
 
@@ -43,6 +40,7 @@ const Navigation = () => {
                         {
                             user?.displayName && <Button style={{ color: "white", }}>{user?.displayName}</Button>
                         }
+                        <Navbar.Brand className="mx-2"><img className="w-50 my-auto  mx-auto rounded-circle" src={user?.photoURL} alt="" /> </Navbar.Brand>
                     </Toolbar>
                 </AppBar>
             </Box>

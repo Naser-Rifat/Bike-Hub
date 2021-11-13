@@ -3,6 +3,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 const Product = ({ product }) => {
     const { img, model, description, price, _id } = product;
+
+
     return (
         <>
             <Grid item xs={12} sm={6} md={4}>
@@ -26,7 +28,7 @@ const Product = ({ product }) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <NavLink to={`/details/${_id}`} style={{ textDecoration: "none" }}> <Button variant="contained" style={{ color: "black" }}>Order Now</Button></NavLink>
+                        <NavLink to={`/details/${_id}`} style={{ textDecoration: "none" }}> <Button className="h" style={{ color: "black", hover: "red" }}>Order Now</Button></NavLink>
 
 
                     </CardActions>

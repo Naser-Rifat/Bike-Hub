@@ -1,14 +1,11 @@
-import { Grid, TextField, Typography, Button, dividerClasses } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Grid, TextField, Typography, Button } from "@mui/material";
+import React from "react";
 import axios from 'axios';
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import Footer from "../Footer/Footer";
-import Navigation from "../Shared/Navigation/Navigation";
 const AddProducts = () => {
 
-    // const [productdata, setProductData] = useState({})
     const { user } = useAuth()
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
@@ -22,16 +19,7 @@ const AddProducts = () => {
 
 
             })
-        // setProductData(data)
-        //console.log(data)
-        // fetch("http://localhost:5000/cycles", {
 
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
     };
 
 
@@ -41,7 +29,6 @@ const AddProducts = () => {
     return (
 
         <div>
-            <Navigation></Navigation>
             <Container style={{ marginTop: "50px", margin: " 0 auto" }}>
 
                 <Typography style={{ marginTop: "50px" }} variant="h3"> Add Products</Typography>
@@ -65,7 +52,6 @@ const AddProducts = () => {
                 </Grid>
 
             </Container>
-            <Footer></Footer>
         </div>
 
     );

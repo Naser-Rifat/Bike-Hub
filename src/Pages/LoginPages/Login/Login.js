@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import login from "../../../Images/login.png";
+import GoogleButton from 'react-google-button'
+
 // import { useForm } from "react-hook-form";
 
 
 
 const Login = () => {
-    const { error, loginUser, isLoading } = useAuth();
+    const { error, loginUser, isLoading, GoogleSignIn } = useAuth();
     const [logininfo, setLoginInfo] = useState({})
     const location = useLocation()
     const history = useHistory()
@@ -32,72 +34,60 @@ const Login = () => {
         e.preventDefault()
 
     }
+    const handleGoogleSignIn = () => {
+        GoogleSignIn(location, history)
+    }
 
 
     return (
         <div style={{ marginTop: "50px" }} >
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid style={{ marginTop: "50px" }} item xs={12} md={6}>
-                        <Typography variant="h4" gutterBottom component="div">
-                            Login
-                        </Typography>
-                        <form onSubmit={handleLoginSubmit} style={{ margin: "50px" }}>
-                            <TextField
-                                sx={{ width: "60%", m: 2 }}
-                                type="email"
-                                label="Email"
-                                name="email"
-                                onBlur={handleOnchange}
-                                variant="standard" />
-                            <TextField
-                                sx={{ width: "60%", m: 2 }}
-                                type="password"
-                                label="Login"
-                                name="password"
-                                onBlur={handleOnchange}
-                                variant="standard" />
-                            <Button type="submit" variant="contained" sx={{ width: "60%", background: "#7362F9" }}>Login</Button>
-                            {isLoading && <CircularProgress />}
+            {isLoading ? <CircularProgress /> :
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={2}>
+                        <Grid style={{ marginTop: "50px" }} item xs={12} md={6}>
+                            <Typography variant="h4" gutterBottom component="div">
+                                Login
+                            </Typography>
+
+                            <form onSubmit={handleLoginSubmit} style={{ margin: "50px" }}>
+                                <TextField
+                                    sx={{ width: "60%", m: 2 }}
+                                    type="email"
+                                    label="Email"
+                                    name="email"
+                                    onBlur={handleOnchange}
+                                    variant="standard" />
+                                <TextField
+                                    sx={{ width: "60%", m: 2 }}
+                                    type="password"
+                                    label="Login"
+                                    name="password"
+                                    onBlur={handleOnchange}
+                                    variant="standard" />
+                                <Button type="submit" variant="contained" sx={{ width: "60%", background: "#7362F9" }}>Login</Button>
+
+
+                            </form>
+
 
                             {
-                                error && <Alert sx={{ width: "60%" }} severity="error"> {error}</Alert>
+                                error && <Alert className="mx-auto" sx={{ width: "60%" }} severity="error"> {error}</Alert>
                             }
-                        </form>
 
-                        {/* <form onSubmit={handleSubmit(onSubmit)}>
-                            <TextField
-                                sx={{ width: "60%", m: 2 }}
-                                type="email"
-                                label="Email"
-                                variant="standard"
-                                {...register("firstName", { required: true, maxLength: 20 })} />
-                            <TextField
-                                sx={{ width: "60%", m: 2 }}
-                                type="password"
-                                label="Password"
-                                variant="standard"
-                                {...register("lastName",
+                            <Link to="/register">  <Button sx={{ width: "60%", my: 5 }}>Create Account ?</Button></Link>
 
-                                    { pattern: /^[A-Za-z]+$/i })}
+                            <GoogleButton className="mx-auto"
+                                onClick={handleGoogleSignIn}
                             />
 
-                            <TextField
-                                sx={{ width: "60%", m: 2 }}
-                                type="submit" />
-
-                    </form> */}
-
-                        <Link to="/register">  <Button sx={{ width: "60%", mt: 5 }}>Create Account ?</Button></Link>
-
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <img style={{ width: "100%", marginTop: "50px" }} src={login} alt="" />
+                        </Grid>
 
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                        <img style={{ width: "100%", marginTop: "50px" }} src={login} alt="" />
-                    </Grid>
-
-                </Grid>
-            </Box>
+                </Box>
+            }
 
         </div >
     );

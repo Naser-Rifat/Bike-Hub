@@ -53,37 +53,37 @@ const Details = () => {
             <Navigation></Navigation>
             <Grid className="my-5" container spacing={2}>
                 <Grid item xs={12} sm={6} md={6}>
-                    <Container className="my-5 mx-5 mx-auto">
-                        <Card >
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={product.img}
-                                alt="image"
-                            />
-                            <CardContent className="text-start">
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {product.model}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {product.description}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {product.price}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                            </CardActions>
-                        </Card>
+
+                    <Card className="my-2 w-75 mx-5 mx-auto container" >
+                        <CardMedia
+                            component="img"
+                            height="140"
+                            image={product.img}
+                            alt="image"
+                        />
+                        <CardContent className="text-start">
+                            <Typography gutterBottom variant="h5" component="div">
+                                {product.model}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {product.description}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {product.price}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                        </CardActions>
+                    </Card>
 
 
-                    </Container>
+
 
 
                 </Grid>
                 <Grid item xs={12} md={6}>
 
-                    <Box className="mx-5 mx-auto">
+                    <Box className="my-2 w-75 mx-5 mx-auto container">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input className="form-control" placeholder="Username" type="text" style={{ width: "80%", margin: "10px" }} defaultValue={user?.displayName} {...register("username")} />
                             <input className="form-control" placeholder="Email" type="email" variant="standard" style={{ width: "80%", margin: "10px" }} defaultValue={user?.email} {...register("email")} />
@@ -91,7 +91,7 @@ const Details = () => {
                             <input className="form-control" placeholder="Phone Number" type="number" style={{ width: "80%", margin: "10px" }}  {...register("phone", { required: true })} />
                             <textarea className="form-control" placeholder="Address" type="text" style={{ width: "80%", margin: "10px" }}  {...register("address", { required: true })} />
 
-                            <Button className="form-control" variant="contained" type="submit" style={{ width: "80%", background: "#7362F9", marginRight: "110px" }}>Submit</Button>
+                            <Button variant="contained" type="submit" style={{ width: "80%", background: "#7362F9", marginRight: "70px" }}>Place Order</Button>
                         </form>
                     </Box>
                 </Grid>

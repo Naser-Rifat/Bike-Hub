@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CssBaseline } from '@mui/material';
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline></CssBaseline>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

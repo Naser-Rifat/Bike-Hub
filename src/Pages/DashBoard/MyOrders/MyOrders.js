@@ -49,7 +49,6 @@ const MyOrders = () => {
                                     <Button onClick={() => handleDelete(order._id)} sx={{ mx: 2, background: "" }} variant="contained">Delete</Button>
                                     <Button sx={{ mx: 2, background: "" }}>{order.status === 200 ? "shifted" : "pending"}</Button>
 
-                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                             </div>
                         </div>

@@ -41,12 +41,12 @@ function App() {
             <PrivateRoute path="/dashboard" >
               <Dashboard></Dashboard>
             </PrivateRoute>
-            <Route path="/details/:id" >
+            <PrivateRoute path="/details/:id" >
               <Details></Details>
-            </Route>
-            <PrivateRoute path="/addproducts" >
-              <AddProducts></AddProducts>
             </PrivateRoute>
+            <Route path="/addproducts" >
+              <AddProducts></AddProducts>
+            </Route>
             <Route path="*" >
               <NotFound></NotFound>
             </Route>

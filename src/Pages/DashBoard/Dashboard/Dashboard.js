@@ -18,7 +18,6 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     NavLink,
@@ -26,15 +25,18 @@ import {
 } from "react-router-dom";
 import MyOrders from '../MyOrders/MyOrders';
 import DashboardHome from '../DashboardHome/DashboardHome';
-import Reviews from '../Reviews/Reviews';
 import Pay from '../Pay/Pay';
 import ManageAllOrderes from '../../ManageAllOrders/ManageAllOrderes';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProducts from '../../AddProducts/AddProducts';
+import AdminRoute from '../AdminRoute/AdminRoute';
+import Review from './Review/Review';
 
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
-    const { logOut } = useAuth()
+    const { logOut, admin } = useAuth()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -56,9 +58,13 @@ function Dashboard(props) {
                 <NavLink to={`${url}/myorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>My Orders</Button></NavLink> <br />
                 <NavLink to={`${url}/payment`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Payment</Button></NavLink> <br />
                 <NavLink to={`${url}/reviews`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Reviews</Button></NavLink> <br />
-                <NavLink to={`${url}/manageallorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage All order</Button></NavLink> <br />
-                <NavLink to={`${url}/addadmin`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add An Admin</Button></NavLink> <br />
-                <NavLink to={`${url}/addproduct`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add Product</Button></NavLink> <br />
+                {
+                    admin && <Box>
+                        <NavLink to={`${url}/manageallorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage All order</Button></NavLink> <br />
+                        <NavLink to={`${url}/addadmin`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add An Admin</Button></NavLink> <br />
+                        <NavLink to={`${url}/addproduct`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add Product</Button></NavLink> <br />
+                    </Box>
+                }
 
                 <Button onClick={logOut} style={{ color: "black" }}>Logout</Button>
             </Box>
@@ -143,20 +149,20 @@ function Dashboard(props) {
                             <MyOrders></MyOrders>
                         </Route>
                         <Route path={`${path}/reviews`}>
-                            <Reviews></Reviews>
+                            <Review></Review>
                         </Route>
                         <Route path={`${path}/payment`}>
                             <Pay></Pay>
                         </Route>
-                        <Route path={`${path}/manageallorders`}>
+                        <AdminRoute path={`${path}/manageallorders`}>
                             <ManageAllOrderes></ManageAllOrderes>
-                        </Route>
-                        <Route path={`${path}/addadmin`}>
-                            <Pay></Pay>
-                        </Route>
-                        <Route path={`${path}/addproduct`}>
-                            <Pay></Pay>
-                        </Route>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/addadmin`}>
+                            <MakeAdmin></MakeAdmin>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/addproduct`}>
+                            <AddProducts></AddProducts>
+                        </AdminRoute>
                     </Switch>
 
                 </Box>

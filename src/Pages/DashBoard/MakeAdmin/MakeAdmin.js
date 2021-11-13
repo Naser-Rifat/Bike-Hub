@@ -1,20 +1,94 @@
-import React from 'react';
+import { TextField, Typography, Button, Alert } from '@mui/material';
+import { Box } from '@mui/system';
+import React, { useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
+
+    const [success, setSucess] = useState(false);
+    const [email, setEmail] = useState('')
+
+
+
+
+
+
+    const handleonBlur = (e) => {
+        setEmail(e.target.value)
+
+    }
+    const handleSubmit = () => {
+        const user = { email }
+
+        fetch("http://localhost:5000/users/admin", {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+
+            .then(res => res.json())
+            .then(data => console.log(data))
+
+
+    }
+
+
+
+    // const [email, setEmail] = useState('')
+    // const [success, setSuccess] = useState(false)
+
+
+    // const handleonBlur = (e) => {
+
+    //     setEmail(e.target.value)
+
+    // }
+
+
+    // const handleSubmit = (e) => {
+    //     const user = { email }
+
+    //     fetch('http://localhost:5000/users/admin', {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(user)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+
+    //             if (data.modifiedCount > 0) {
+    //                 setSuccess(true)
+    //             }
+    //             console.log(data)
+    //         })
+
+
+
+
+    //     e.preventDefault();
+
+    // }
     return (
         <div>
-            <form class="row g-3">
-                <div class="col-auto">
-                    <label for="staticEmail2" class="visually-hidden">Email</label>
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com" />
-                </div>
-                <div class="col-auto">
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password" />
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-                </div>
+            <h1>Make  an Admin</h1>
+            <form onSubmit={handleSubmit}>
+
+                <TextField
+                    style={{ width: "50%" }}
+                    label="Email"
+                    variant="standard"
+                    type="email"
+                    onBlur={handleonBlur}
+                />
+                <Button type="submit" variant="contained">ADD Admin</Button>
+                {
+                    success && <Alert sx={{ width: "60%", textAlign: "center" }} severity="success">Successfully Added</Alert>
+                }
+
             </form>
         </div>
     );
