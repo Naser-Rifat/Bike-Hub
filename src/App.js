@@ -13,7 +13,9 @@ import {
 import { NotFound } from 'http-errors';
 import AddProducts from './Pages/AddProducts/AddProducts';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import Products from './Pages/HomePages/Products/Products';
+import Explore from './Pages/HomePages/Explore/Explore';
+import Details from './Pages/Details/Details';
+import Dashboard from './Pages/DashBoard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -33,8 +35,14 @@ function App() {
             <Route path="/register" >
               <Register></Register>
             </Route>
-            <Route path="/products" >
-              <Products></Products>
+            <Route path="/explore" >
+              <Explore></Explore>
+            </Route>
+            <PrivateRoute path="/dashboard" >
+              <Dashboard></Dashboard>
+            </PrivateRoute>
+            <Route path="/details/:id" >
+              <Details></Details>
             </Route>
             <PrivateRoute path="/addproducts" >
               <AddProducts></AddProducts>

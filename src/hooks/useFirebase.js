@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const [success, setSuccess] = useState(false);
 
     const auth = getAuth();
@@ -18,8 +19,10 @@ const useFirebase = () => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
+                const user = result.user
                 const newUser = { email, displayName: name }
-                setUser(newUser)
+                setUser(newUser);
+                setIsLogin(true);
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
@@ -49,6 +52,7 @@ const useFirebase = () => {
                 const user = result.user;
                 setUser(user);
                 setSuccess(true);
+                setIsLogin(true)
                 const destination = location?.state?.from || "/";
                 history.replace(destination);
 
@@ -106,6 +110,7 @@ const useFirebase = () => {
         success,
         logOut,
         isLoading,
+        isLogin,
         setSuccess
     }
 

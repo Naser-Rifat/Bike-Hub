@@ -1,7 +1,8 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import bg from '../../../Images/bicycle-banner.jpg'
-import { Typography, Button, Link } from '@mui/material';
+import { Typography, Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -20,14 +21,15 @@ const Banner = () => {
         <div style={cycleBg}>
             <Grid container spacing={2}   >
                 <Grid item xs={12} md={6} >
-                    <Typography variant="h3">
-                        Hello
-                    </Typography>
+
                 </Grid>
                 <Grid item xs={12} md={6} >
                     <div style={{ height: "600px" }} className="d-flex justify-content-start align-items-center ">
                         <div>
-                            <Link to="/products"><Button className="px-5" style={{ background: "#7362F9" }} variant="contained"> Explore</Button></Link>
+                            <NavLink to="/explore" style={{ textDecoration: "none" }}>
+                                <Button className="px-5" style={{ background: "#7362F9" }} variant="contained"> Explore</Button>
+                            </NavLink>
+
                         </div>
 
                     </div>

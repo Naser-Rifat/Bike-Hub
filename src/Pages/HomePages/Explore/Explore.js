@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import Product from '../../Product/Product';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Explore = () => {
     const [products, setProducts] = useState([])
@@ -13,6 +14,7 @@ const Explore = () => {
     }, [])
     return (
         <Box sx={{ flexGrow: 1 }}>
+            <Navigation></Navigation>
             <Grid container spacing={3} sx={{ m: 8, width: "90%", mx: "auto" }}>
                 {
                     products.map(product => <Product

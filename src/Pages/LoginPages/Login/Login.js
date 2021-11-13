@@ -1,4 +1,4 @@
-import { Alert, Button, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -9,7 +9,7 @@ import login from "../../../Images/login.png";
 
 
 const Login = () => {
-    const { error, loginUser, success } = useAuth();
+    const { error, loginUser, isLoading } = useAuth();
     const [logininfo, setLoginInfo] = useState({})
     const location = useLocation()
     const history = useHistory()
@@ -58,9 +58,8 @@ const Login = () => {
                                 onBlur={handleOnchange}
                                 variant="standard" />
                             <Button type="submit" variant="contained" sx={{ width: "60%", background: "#7362F9" }}>Login</Button>
-                            {
-                                success && <Alert sx={{ width: "60%" }} severity="success">Login sucessfull</Alert>
-                            }
+                            {isLoading && <CircularProgress />}
+
                             {
                                 error && <Alert sx={{ width: "60%" }} severity="error"> {error}</Alert>
                             }

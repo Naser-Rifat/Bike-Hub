@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
@@ -31,11 +31,14 @@ const Navigation = () => {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             News
                         </Typography>
-                        <Link to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Home</Button></Link>
-                        <Link to="/addproducts" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Add Products</Button></Link>
+                        <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Home</Button></NavLink>
+                        <NavLink to="/explore" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Explore</Button></NavLink>
+                        <NavLink to="/addproducts" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Add Products</Button></NavLink>
+                        <NavLink to="/dashboard" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Dashboard</Button></NavLink>
+
 
                         {
-                            user?.email ? <Button onClick={logOut} style={{ color: "white", }}>Logout</Button> : <Link to="/login" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Login</Button></Link>
+                            user?.email ? <Button onClick={logOut} style={{ color: "white", }}>Logout</Button> : <NavLink to="/login" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Login</Button></NavLink>
                         }
                         {
                             user?.displayName && <Button style={{ color: "white", }}>{user?.displayName}</Button>
