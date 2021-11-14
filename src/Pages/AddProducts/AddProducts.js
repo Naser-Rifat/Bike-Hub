@@ -10,7 +10,7 @@ const AddProducts = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/cycles', data)
+        axios.post('https://peaceful-ravine-05762.herokuapp.com/cycles', data)
             .then(res => {
                 console.log(res)
                 if (res.data.insertedId) {

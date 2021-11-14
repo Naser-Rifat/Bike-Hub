@@ -19,7 +19,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cycles/${id}`)
+        fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -38,7 +38,7 @@ const Details = () => {
         }
         console.log(orderdata);
 
-        axios.post('http://localhost:5000/orders', orderdata)
+        axios.post('https://peaceful-ravine-05762.herokuapp.com/orders', orderdata)
             .then(res => {
                 console.log(res)
                 if (res.data.insertedId) {
