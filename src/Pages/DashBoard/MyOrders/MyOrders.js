@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [orderData, setOrderData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://peaceful-ravine-05762.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrderData(data))
     }, [])
@@ -16,7 +16,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const procced = window.confirm("You would like to delete?")
         if (procced) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://peaceful-ravine-05762.herokuapp.com/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

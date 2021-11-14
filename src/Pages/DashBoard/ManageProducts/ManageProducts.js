@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const [productsData, setProductsData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cycles`)
+        fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles`)
             .then(res => res.json())
             .then(data => setProductsData(data))
     }, [])
@@ -15,40 +15,20 @@ const ManageProducts = () => {
     const handleDelete = (id) => {
         const procced = window.confirm("You would like to delete?")
         if (procced) {
-            fetch(`http://localhost:5000/cycles/${id}`, {
+            fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        fetch(`http://localhost:5000/cycles`)
+                        fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles`)
                             .then(res => res.json())
                             .then(data => setProductsData(data))
                     }
                 })
         }
     }
-    // const handleConfirm = (id) => {
 
-
-    //     fetch(`http://localhost:5000/cycles/${id}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             'content-type': 'appoinment/json'
-    //         },
-    //         body: JSON.stringify()
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.modifiedCount > 0) {
-    //                 fetch(`http://localhost:5000/cycles`)
-    //                     .then(res => res.json())
-    //                     .then(data => setOrderData(data))
-    //             }
-
-    //         })
-
-    // }
 
 
     return (
