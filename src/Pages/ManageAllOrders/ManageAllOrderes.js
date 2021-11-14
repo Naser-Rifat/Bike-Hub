@@ -7,7 +7,7 @@ const ManageAllOrderes = () => {
     const [orderData, setOrderData] = useState([]);
 
     useEffect(() => {
-        fetch(`https://peaceful-ravine-05762.herokuapp.com/orders`)
+        fetch(`http://localhost:5000/orders`)
             .then(res => res.json())
             .then(data => setOrderData(data))
     }, [])
@@ -15,7 +15,7 @@ const ManageAllOrderes = () => {
     const handleDelete = (id) => {
         const procced = window.confirm("You would like to delete?")
         if (procced) {
-            fetch(`https://peaceful-ravine-05762.herokuapp.com/orders/${id}`, {
+            fetch(`http://localhost:5000/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -30,7 +30,7 @@ const ManageAllOrderes = () => {
     const handleConfirm = (id) => {
 
 
-        fetch(`https://peaceful-ravine-05762.herokuapp.com/orders/${id}`, {
+        fetch(`http://localhost:5000/orders/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'appoinment/json'
@@ -40,7 +40,7 @@ const ManageAllOrderes = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    fetch(`https://peaceful-ravine-05762.herokuapp.com/orders`)
+                    fetch(`http://localhost:5000/orders`)
                         .then(res => res.json())
                         .then(data => setOrderData(data))
                 }

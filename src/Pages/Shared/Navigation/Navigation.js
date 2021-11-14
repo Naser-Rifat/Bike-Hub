@@ -20,6 +20,7 @@ const Navigation = () => {
                 <Navbar.Collapse className="justify-content-end">
 
                     <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }} >Home</Button></NavLink>
+                    <NavLink to="/explore" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }} >Explore</Button></NavLink>
 
                     <NavLink to="/dashboard" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Dashboard</Button></NavLink>
 

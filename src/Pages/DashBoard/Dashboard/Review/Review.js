@@ -29,7 +29,7 @@ const Review = () => {
 
         const Reviewer = { ...data, email: user?.email, name: user?.displayName, img: user?.photoURL, rating: value }
         console.log(Reviewer);
-        axios.post('https://peaceful-ravine-05762.herokuapp.com/reviews', Reviewer)
+        axios.post('http://localhost:5000/reviews', Reviewer)
             .then(res => {
                 console.log(res)
                 if (res.data.insertedId) {

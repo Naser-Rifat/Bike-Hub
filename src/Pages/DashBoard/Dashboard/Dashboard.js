@@ -20,6 +20,7 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import MyOrders from '../MyOrders/MyOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Pay from '../Pay/Pay';
 import ManageAllOrderes from '../../ManageAllOrders/ManageAllOrderes';
@@ -61,9 +62,10 @@ function Dashboard(props) {
                 <NavLink to={`${url}/reviews`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Review</Button></NavLink> <br />
                 {
                     admin && <Box>
-                        <NavLink to={`${url}/manageallorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage All order</Button></NavLink> <br />
+                        <NavLink to={`${url}/manageallorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage All Orders</Button></NavLink> <br />
                         <NavLink to={`${url}/addadmin`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add An Admin</Button></NavLink> <br />
                         <NavLink to={`${url}/addproduct`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Add Product</Button></NavLink> <br />
+                        <NavLink to={`${url}/manageproducts`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage Products</Button></NavLink> <br />
                     </Box>
                 }
 
@@ -163,6 +165,9 @@ function Dashboard(props) {
                         </AdminRoute>
                         <AdminRoute path={`${path}/addproduct`}>
                             <AddProducts></AddProducts>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/manageproducts`}>
+                            <ManageProducts></ManageProducts>
                         </AdminRoute>
                     </Switch>
 
