@@ -8,7 +8,7 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isLogin, setIsLogin] = useState(false);
     const [success, setSuccess] = useState(false);
     const [admin, setAdmin] = useState(false);

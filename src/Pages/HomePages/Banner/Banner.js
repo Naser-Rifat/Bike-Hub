@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const Banner = () => {
     const cycleBg = {
         background: `url(${bg})`,
-        backgroundColor: 'rgba(0, 53, 47, .5)',
+        backgroundColor: 'rgba(0, 53, 47, .7 )',
         height: "100vh",
         width: "100%",
         backgroundBlendMode: 'overlay',
@@ -24,13 +24,17 @@ const Banner = () => {
 
                 </Grid>
                 <Grid item xs={12} md={6} >
-                    <div style={{ height: "600px" }} className="d-flex justify-content-start align-items-center ">
-                        <div>
+
+                    <div style={{ height: "600px" }} className="d-flex justify-content-center align-items-center ">
+                        <div className="ms-2">
+                            <Typography style={{ color: "white", margin: "50px" }} variant="h1"> Life is Better <br /> on bike </Typography>
                             <NavLink to="/explore" style={{ textDecoration: "none" }}>
                                 <Button className="p-2 px-5" style={{ color: "black", fontSize: "18px", background: "#E74C3C" }} variant="contained"> Explore</Button>
                             </NavLink>
 
                         </div>
+
+
 
                     </div>
                 </Grid>

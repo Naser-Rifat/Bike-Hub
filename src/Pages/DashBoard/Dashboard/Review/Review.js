@@ -9,20 +9,15 @@ import StarIcon from '@mui/icons-material/Star';
 
 const Review = () => {
     const [value, setValue] = useState(1);
-    const [hover, setHover] = useState(-1);
 
     console.log(value)
 
     const labels = {
-        //  0.5: 'Useless',
+
         1: ' ',
-        // 1.5: 'Poor',
         2: '',
-        // 2.5: 'Ok',
         3: '',
-        // 3.5: 'Good',
         4: '',
-        // 4.5: 'Excellent',
         5: '',
     };
 
@@ -55,33 +50,31 @@ const Review = () => {
 
                     <Grid style={{ marginTop: "50px", margin: "40px auto" }} item xs={12} md={6}>
 
+                        <Box
+                            sx={{
+                                width: 200,
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Rating
+                                name="hover-feedback"
+                                value={value}
+                                precision={1}
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+
+                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                            />
+
+                        </Box>
+
                         <form style={{ width: "100%", margin: "0 auto", textAlign: "left" }} onSubmit={handleSubmit(onSubmit)}>
-                            <textarea placeholder="Comment" type="text" variant="standard" style={{ width: "70%", height: "100px", padding: "5px", margin: "20px auto" }} {...register("description", { required: true })} />
+                            <textarea placeholder="Put your feedback" type="text" variant="standard" style={{ width: "70%", height: "100px", padding: "5px", margin: "20px auto" }} {...register("description", { required: true })} />
                             <Grid container spacing={2}>
                                 <Grid style={{ marginTop: "10px" }} item xs={12} md={5}>
-                                    <Box
-                                        sx={{
-                                            width: 200,
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <Rating
-                                            name="hover-feedback"
-                                            value={value}
-                                            precision={1}
-                                            onChange={(event, newValue) => {
-                                                setValue(newValue);
-                                            }}
-                                            onChangeActive={(event, newHover) => {
-                                                setHover(newHover);
-                                            }}
-                                            emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                        />
-                                        {value !== null && (
-                                            <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
-                                        )}
-                                    </Box>
+
 
                                 </Grid>
                                 <Grid className="text-left" style={{ marginTop: "10px" }} item xs={12} md={7}>

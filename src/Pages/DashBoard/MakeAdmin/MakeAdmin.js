@@ -1,7 +1,5 @@
 import { TextField, Typography, Button, Alert } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
 
@@ -36,45 +34,10 @@ const MakeAdmin = () => {
 
 
 
-    // const [email, setEmail] = useState('')
-    // const [success, setSuccess] = useState(false)
 
-
-    // const handleonBlur = (e) => {
-
-    //     setEmail(e.target.value)
-
-    // }
-
-
-    // const handleSubmit = (e) => {
-    //     const user = { email }
-
-    //     fetch('http://localhost:5000/users/admin', {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-
-    //             if (data.modifiedCount > 0) {
-    //                 setSuccess(true)
-    //             }
-    //             console.log(data)
-    //         })
-
-
-
-
-    //     e.preventDefault();
-
-    // }
     return (
         <div>
-            <h1>Make  an Admin</h1>
+            <Typography className="my-3" variant="h4">Make Admin</Typography>
             <form onSubmit={handleSubmit}>
 
                 <TextField

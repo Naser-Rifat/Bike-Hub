@@ -33,7 +33,8 @@ const Details = () => {
             ...data,
             price: product.price,
             model: product.model,
-            status: "pending"
+            status: "pending",
+            img: product.img
         }
         console.log(orderdata);
 
@@ -57,7 +58,7 @@ const Details = () => {
                     <Card className="my-2 w-75 mx-5 mx-auto container" >
                         <CardMedia
                             component="img"
-                            height="140"
+                            height="300"
                             image={product.img}
                             alt="image"
                         />
@@ -65,12 +66,13 @@ const Details = () => {
                             <Typography gutterBottom variant="h5" component="div">
                                 {product.model}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {product.description}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="h4" className="text-danger mb-5">
                                 {product.price}
                             </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                <span style={{ fontWeight: "600", fontSize: "14px" }}>Description:</span> {product.description}
+                            </Typography>
+
                         </CardContent>
                         <CardActions>
                         </CardActions>

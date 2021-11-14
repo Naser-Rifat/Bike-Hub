@@ -1,7 +1,9 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 import Footer from '../../Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
+import Cycle from '../Cycle/Cycle';
 import Products from '../Products/Products';
 import Reviews from '../Reviews/Reviews';
 
@@ -11,7 +13,9 @@ const Home = () => {
 
             <Navigation></Navigation>
             <Banner></Banner>
+            <Cycle></Cycle>
             <Products></Products>
+            <Typography variant="h4">Testimonial</Typography>
             <Reviews></Reviews>
             <Footer></Footer>
         </div>

@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 
@@ -53,25 +53,27 @@ const ManageAllOrderes = () => {
     return (
         <div>
 
+            <Typography className="my-3" variant="h4">Manage Orders</Typography>
+
             {
-                orderData.map(order =>
+                orderData?.map(order =>
                     <div key={order._id} className="card mb-3" style={{ maxWidth: "90%" }}>
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src="..." className="img-fluid rounded-start" alt="..." />
+                                <img src={order.img} className="w-50 rounded-start" alt="..." />
                             </div>
-                            <div className="col-md-8">
-                                <div className="card-body">
-                                    <h5 className="card-title">{order.model}</h5>
-                                    <p className="card-text">{order.price}</p>
-                                    <p className="card-text">{order.email}</p>
-                                    <p className="card-text">{order.address}</p>
-                                    <Button onClick={() => handleDelete(order._id)} sx={{ mx: 2, background: "" }} variant="contained">Delete</Button>
+                            <div className="col-md-6">
+                                <div className="card-body text-start">
+                                    <h6 className="card-text my-2">Model: <span>{order.model}</span> </h6>
+                                    <h6 className="card-text me-2">Price: <span className="text-danger">{order.price}</span></h6>
+                                    <h6 className="card-text me-2">Email: <span className="text-primary">{order.email}</span></h6>
+                                    <h6 className="card-text me-2">Address: <span>{order.address}</span></h6>
+                                    <Button onClick={() => handleDelete(order._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
                                     {
-                                        order.status === 200 ? <Button variant="contained" sx={{ mx: 2, background: "green" }}>Confirmed</Button> : <Button onClick={() => handleConfirm(order._id)} variant="contained" sx={{ mx: 2, background: "" }}>Confirm</Button>
+                                        order.status === 200 ? <Button sx={{ mx: 2, color: "green" }}>Confirmed</Button> : <Button onClick={() => handleConfirm(order._id)} variant="contained" sx={{ mx: 2, background: "" }}>Confirm</Button>
                                     }
 
-                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                    <p className="card-text"></p>
                                 </div>
                             </div>
                         </div>

@@ -6,12 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -31,6 +27,8 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../../AddProducts/AddProducts';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import Review from './Review/Review';
+import SvgIcon from '@mui/material/SvgIcon';
+
 
 
 const drawerWidth = 240;
@@ -52,12 +50,15 @@ function Dashboard(props) {
             <Divider />
 
             <Box sx={{ textAlign: "left", m: 2 }}>
-                <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Home</Button></NavLink>
+                <NavLink to="/home" style={{ textDecoration: "none" }}> <SvgIcon className="ms-1" >
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </SvgIcon> <Button className="text-primary" style={{ marginLeft: "0px", paddingLeft: "0px", marginTop: "8px" }}>
+                        Home</Button></NavLink>
                 <br />
-                <NavLink to={`${url}`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Dashboard Home</Button></NavLink> <br />
+                <NavLink to={`${url}`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Dashboard</Button></NavLink> <br />
                 <NavLink to={`${url}/myorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>My Orders</Button></NavLink> <br />
                 <NavLink to={`${url}/payment`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Payment</Button></NavLink> <br />
-                <NavLink to={`${url}/reviews`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Reviews</Button></NavLink> <br />
+                <NavLink to={`${url}/reviews`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Review</Button></NavLink> <br />
                 {
                     admin && <Box>
                         <NavLink to={`${url}/manageallorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Manage All order</Button></NavLink> <br />
@@ -66,7 +67,7 @@ function Dashboard(props) {
                     </Box>
                 }
 
-                <Button onClick={logOut} style={{ color: "black" }}>Logout</Button>
+                <Button onClick={logOut} style={{ color: "black" }}> <LogoutIcon className="me-2" />Logout</Button>
             </Box>
 
 

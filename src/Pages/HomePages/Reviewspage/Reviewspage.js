@@ -16,11 +16,11 @@ const Reviewspage = ({ review }) => {
 
     return (
         <>
-            <Grid className="my-5" item xs={12} sm={6} md={4}>
+            <Grid className="my-5 box-shadow-sm" item xs={12} sm={6} md={4} >
                 <Card style={{ height: "250px" }}>
                     <Box style={{ height: "80%" }}>
                         <Box className="w-50 mx-auto" style={{ display: "flex" }}>
-                            <img className="rounded-circle w-25 mx-auto" src={img} alt="No_image" />
+                            <img className="rounded-circle w-25 mx-auto" src={img} alt="No_Image" />
 
                         </Box>
                         <CardContent>
@@ -28,13 +28,14 @@ const Reviewspage = ({ review }) => {
                                 {name}
                             </Typography>
                             <Typography style={{ fontSize: "14px", fontWeight: 400 }} gutterBottom variant="h6" component="div">
-                                {description}
+                                {description.split("", 100)}
                             </Typography>
                         </CardContent>
                     </Box>
 
 
                     <Box
+
                         sx={{
                             width: 200,
                             display: 'flex',
@@ -44,10 +45,12 @@ const Reviewspage = ({ review }) => {
                         }}
                     >
                         <Rating
+                            disabled
                             className="mx-auto"
                             name="hover-feedback"
                             value={rating}
                             precision={1}
+                            style={{ opacity: 0.9 }}
 
 
                             emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
