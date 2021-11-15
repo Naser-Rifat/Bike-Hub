@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
@@ -16,19 +14,24 @@ const Reviewspage = ({ review }) => {
 
     return (
         <>
-            <Grid className="my-5 box-shadow-sm" item xs={12} sm={6} md={4} >
-                <Card style={{ height: "250px" }}>
-                    <Box style={{ height: "80%" }}>
+            <Grid className="my-5  " item xs={12} sm={6} md={4} >
+                <Card style={{ height: "290px", background: "#CEF6F5" }}>
+                    <div class="card-header">{name}</div>
+
+                    <Box style={{ height: "65%", padding: "10px 0" }}>
                         <Box className="w-50 mx-auto" style={{ display: "flex" }}>
-                            <img className="rounded-circle w-25 mx-auto" src={img} alt="No_Image" />
+                            <img className="rounded-circle w-25 mx-auto" src={img} alt="No_Image"
+                                onError={event => {
+                                    event.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9tG_NFfmLde3aA3q3p2yib1KJslRRNlJQg&usqp=CAU"
+                                    event.onerror = null
+                                }} />
+
 
                         </Box>
                         <CardContent>
-                            <Typography>
-                                {name}
-                            </Typography>
-                            <Typography style={{ fontSize: "14px", fontWeight: 400 }} gutterBottom variant="h6" component="div">
-                                {description.split("", 100)}
+
+                            <Typography style={{ fontSize: "14px", fontWeight: 400, textAlign: "center" }} gutterBottom variant="h6" component="div">
+                                {description.split("", 150)}
                             </Typography>
                         </CardContent>
                     </Box>

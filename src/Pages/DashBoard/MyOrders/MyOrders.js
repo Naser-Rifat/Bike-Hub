@@ -1,6 +1,12 @@
-import { Button, Typography } from '@mui/material';
+import { Button, TableCell, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const MyOrders = () => {
 
@@ -33,7 +39,55 @@ const MyOrders = () => {
 
     return (
         <div>
-            <Typography className="my-3" variant="h4">My Orders</Typography>
+
+            <TableContainer component={Paper}>
+                <Typography className="my-3" variant="h4">Manage orders</Typography>
+                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Order ID</TableCell>
+                            <TableCell align="left">Model</TableCell>
+                            <TableCell align="left">Price</TableCell>
+                            <TableCell align="left">Email</TableCell>
+                            <TableCell align="left">Status</TableCell>
+                            <TableCell align="left">Delete Order</TableCell>
+
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {orderData?.map((row) => (
+                            <TableRow key={row._id}>
+
+                                <TableCell style={{ width: "150px" }} component="th" scope="row">
+                                    <img className="w-100" src={row.img} alt="" />
+                                </TableCell>
+                                <TableCell sx={{ width: 150 }} align="left">{row.model}</TableCell>
+                                <TableCell sx={{ width: 150 }} align="left">{row.price}</TableCell>
+                                <TableCell sx={{ width: 200 }} align="left">{row.email}</TableCell>
+                                <TableCell sx={{ width: 50 }} align="center">
+                                    {
+                                        row.status === 200 ? <Button className="" sx={{ color: "green" }}>Shipted</Button>
+                                            : <Button sx={{ color: "#FF8C00" }}> Pending</Button>
+                                    }
+
+
+
+                                </TableCell>
+                                <TableCell align="left">
+
+                                    {
+                                        row.status === 200 ? <Button disabled variant="contained">Delete</Button> : <Button onClick={() => handleDelete(row._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
+                                    }
+
+
+                                </TableCell>
+
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            {/* <Typography className="my-3" variant="h4">My Orders</Typography>
 
             {
                 orderData.map(order =>
@@ -46,9 +100,11 @@ const MyOrders = () => {
                                 <div className="card-body text-start">
                                     <h6 className="card-text my-2">Model: <span>{order.model}</span> </h6>
                                     <h6 className="card-text me-2">Price: <span>{order.price}</span></h6>
-                                    <Button onClick={() => handleDelete(order._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
                                     {
-                                        order.status === 200 ? <Button className="" sx={{ mx: 2, color: "green" }}>Confirmed</Button>
+                                        order.status === 200 ? <Button disabled variant="contained">Delete</Button> : <Button onClick={() => handleDelete(order._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
+                                    }
+                                    {
+                                        order.status === 200 ? <Button className="" sx={{ mx: 2, color: "green" }}>Shipted</Button>
                                             : <Button sx={{ mx: 2, color: "#FF8C00" }}> Pending</Button>
                                     }
 
@@ -57,7 +113,7 @@ const MyOrders = () => {
                         </div>
 
                     </div>)
-            }
+            } */}
 
         </div >
     );

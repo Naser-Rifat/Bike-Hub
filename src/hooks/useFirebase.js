@@ -9,7 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [isLogin, setIsLogin] = useState(false);
+    // const [isLogin, setIsLogin] = useState(false);
     const [success, setSuccess] = useState(false);
     const [admin, setAdmin] = useState(false);
 
@@ -45,7 +45,7 @@ const useFirebase = () => {
                 //const user = result.user
                 const newUser = { email, displayName: name }
                 setUser(newUser);
-                setIsLogin(true);
+                //  setIsLogin(true);
                 saveUser(email, name, "POST")
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -76,7 +76,7 @@ const useFirebase = () => {
                 const user = result.user;
                 setUser(user);
                 setSuccess(true);
-                setIsLogin(true)
+                //    setIsLogin(true)
                 const destination = location?.state?.from || "/";
                 history.replace(destination);
 
@@ -113,7 +113,7 @@ const useFirebase = () => {
                 // Sign-out successful.
             })
             .catch((error) => {
-                // An error happened.
+                setError(error.message);
             })
             .finally(() => setIsLoading(false))
 
@@ -140,6 +140,13 @@ const useFirebase = () => {
         fetch(`https://peaceful-ravine-05762.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => setIsLoading(false))
+
+            ;
+
     }, [user?.email])
 
 
@@ -153,10 +160,11 @@ const useFirebase = () => {
         success,
         logOut,
         isLoading,
-        isLogin,
+        // isLogin,
         setSuccess,
         admin,
-        GoogleSignIn
+        GoogleSignIn,
+        setIsLoading
     }
 
 }

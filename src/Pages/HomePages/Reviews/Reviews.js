@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Grid } from '@mui/material';
+import { Grid, Typography, Divider } from '@mui/material';
 import Reviewspage from '../Reviewspage/Reviewspage';
 
 const Reviews = () => {
@@ -12,14 +12,19 @@ const Reviews = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setReviews(data)
+                setReviews(data.reverse())
             })
     }, [])
 
 
+
     return (
-        <div className="container">
-            <Grid container spacing={2}>
+        <div className="container ">
+            <Typography variant="h5"> User Feedback</Typography>
+            <Divider style={{ color: "#7362F9", fontWeight: 700, width: "180px", margin: "0 auto" }} />
+
+            <Grid container spacing={2} >
+
 
                 {
                     reviews.slice(0, 3).map(review => <Reviewspage

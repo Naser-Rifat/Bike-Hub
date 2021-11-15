@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import useAuth from '../../../hooks/useAuth';
 
-const ManageAllOrderes = () => {
+const Myorders2 = () => {
+    const { user } = useAuth()
     const [orderData, setOrderData] = useState([]);
 
     useEffect(() => {
@@ -64,7 +66,6 @@ const ManageAllOrderes = () => {
 
 
         <TableContainer component={Paper}>
-            <Typography className="my-3" variant="h4">Manage orders</Typography>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
@@ -73,23 +74,22 @@ const ManageAllOrderes = () => {
                         <TableCell align="left">Price</TableCell>
                         <TableCell align="left">Email</TableCell>
                         <TableCell align="left">Address</TableCell>
-                        <TableCell align="center"> Order Status</TableCell>
-                        <TableCell align="left">Cancellation</TableCell>
+                        <TableCell align="center">Confirm</TableCell>
+                        <TableCell align="left">Delete</TableCell>
 
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {orderData.map((row) => (
                         <TableRow key={row._id}>
-
-                            <TableCell sx={{ width: 50 }} component="th" scope="row">
+                            <TableCell component="th" scope="row">
                                 {row._id}
                             </TableCell>
-                            <TableCell sx={{ width: 150 }} align="left">{row.model}</TableCell>
-                            <TableCell sx={{ width: 150 }} align="left">{row.price}</TableCell>
-                            <TableCell sx={{ width: 200 }} align="left">{row.email}</TableCell>
-                            <TableCell sx={{ width: 200 }} align="left">{row.address}</TableCell>
-                            <TableCell sx={{ width: 50 }} align="center">
+                            <TableCell align="left">{row.model}</TableCell>
+                            <TableCell align="left">{row.price}</TableCell>
+                            <TableCell align="left">{row.email}</TableCell>
+                            <TableCell align="left">{row.address}</TableCell>
+                            <TableCell align="center">
 
                                 {
                                     row?.status === 200 ? <Button sx={{ mx: 2, color: "green" }}>Confirmed</Button> : <Button onClick={() => handleConfirm(row._id)} variant="contained" sx={{ mx: 2, background: "" }}>Confirm</Button>
@@ -100,7 +100,7 @@ const ManageAllOrderes = () => {
 
 
                                 {
-                                    <Button onClick={() => handleDelete(row._id)} sx={{ background: "#B21807" }} variant="contained">{row?.status === 200 ? "Cancel" : "Delete"}</Button>
+                                    <Button onClick={() => handleDelete(row._id)} sx={{ background: "#B21807" }} variant="contained">{row?.status === 200 ? "Cancle" : "Delete"}</Button>
                                 }
 
 
@@ -115,4 +115,4 @@ const ManageAllOrderes = () => {
 
 };
 
-export default ManageAllOrderes;
+export default Myorders2;

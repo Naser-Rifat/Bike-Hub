@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid, Container } from '@mui/material';
@@ -16,7 +16,7 @@ const Details = () => {
 
     const { user } = useAuth()
     const { register, handleSubmit } = useForm();
-
+    const history = useHistory()
 
     useEffect(() => {
         fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles/${id}`)
@@ -42,7 +42,8 @@ const Details = () => {
             .then(res => {
                 console.log(res)
                 if (res.data.insertedId) {
-                    alert("Place ordered")
+                    alert("Add Ordered")
+                    history.push("/")
                 }
 
 

@@ -2,24 +2,24 @@ import { Grid, Typography, Button, Container } from "@mui/material";
 import React, { useState } from "react";
 import axios from 'axios';
 import { useForm } from "react-hook-form";
-import useAuth from "../../../../hooks/useAuth";
 import { Box } from '@mui/system';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import useAuth from "../../../hooks/useAuth";
 
 const Review = () => {
     const [value, setValue] = useState(1);
 
     console.log(value)
 
-    const labels = {
+    // const labels = {
 
-        1: ' ',
-        2: '',
-        3: '',
-        4: '',
-        5: '',
-    };
+    //     1: ' ',
+    //     2: '',
+    //     3: '',
+    //     4: '',
+    //     5: '',
+    // };
 
     const { user } = useAuth()
     const { register, handleSubmit } = useForm();

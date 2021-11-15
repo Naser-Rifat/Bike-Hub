@@ -8,8 +8,7 @@ const Product = ({ product }) => {
 
     return (
         <>
-            <Grid item xs={12} sm={6} md={4}>
-
+            <Grid style={{ marginTop: "0px" }} item xs={12} sm={6} md={4} >
                 <Card style={{ padding: "20px", height: "550px" }}>
                     <Box style={{ height: "90%" }}>
                         <CardMedia
@@ -32,13 +31,14 @@ const Product = ({ product }) => {
 
                     </Box>
                     <CardActions>
-                        <NavLink to={`/details/${_id}`} style={{ textDecoration: "none" }}> <Button className="text-primary" style={{ hover: "red" }}>Order Now</Button></NavLink>
+                        <NavLink to={`/details/${_id}`} style={{ textDecoration: "none" }}> <Button style={{ color: "#7362F9" }}>Order Now</Button></NavLink>
 
 
                     </CardActions>
                 </Card>
 
             </Grid>
+
 
         </>
     );

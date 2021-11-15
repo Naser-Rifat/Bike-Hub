@@ -1,10 +1,10 @@
 import { Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
+import { NavLink } from 'react-router-dom';
 
 const ManageProducts = () => {
-    const { user } = useAuth();
     const [productsData, setProductsData] = useState([]);
+
 
     useEffect(() => {
         fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles`)
@@ -51,6 +51,7 @@ const ManageProducts = () => {
 
                                     <Button onClick={() => handleDelete(product._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
 
+
                                     <p className="card-text"></p>
                                 </div>
                             </div>
@@ -58,6 +59,7 @@ const ManageProducts = () => {
 
                     </div>)
             }
+
 
         </div >
     );

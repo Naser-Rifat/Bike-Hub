@@ -27,8 +27,8 @@ import ManageAllOrderes from '../../ManageAllOrders/ManageAllOrderes';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../../AddProducts/AddProducts';
 import AdminRoute from '../AdminRoute/AdminRoute';
-import Review from './Review/Review';
 import SvgIcon from '@mui/material/SvgIcon';
+import Review from '../Review/Review';
 
 
 
@@ -58,6 +58,7 @@ function Dashboard(props) {
                 <br />
                 <NavLink to={`${url}`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Dashboard</Button></NavLink> <br />
                 <NavLink to={`${url}/myorders`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>My Orders</Button></NavLink> <br />
+
                 <NavLink to={`${url}/payment`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Payment</Button></NavLink> <br />
                 <NavLink to={`${url}/reviews`} style={{ textDecoration: "none" }}> <Button style={{ color: "black" }}>Review</Button></NavLink> <br />
                 {
@@ -151,6 +152,7 @@ function Dashboard(props) {
                         <Route path={`${path}/myorders`}>
                             <MyOrders></MyOrders>
                         </Route>
+
                         <Route path={`${path}/reviews`}>
                             <Review></Review>
                         </Route>

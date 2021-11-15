@@ -15,7 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <Cycle></Cycle>
             <Products></Products>
-            <Typography variant="h4">Testimonial</Typography>
+
             <Reviews></Reviews>
             <Footer></Footer>
         </div>
