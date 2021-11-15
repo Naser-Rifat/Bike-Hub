@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import React from 'react';
 import Footer from '../../Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
@@ -15,7 +14,6 @@ const Home = () => {
             <Banner></Banner>
             <Cycle></Cycle>
             <Products></Products>
-
             <Reviews></Reviews>
             <Footer></Footer>
         </div>

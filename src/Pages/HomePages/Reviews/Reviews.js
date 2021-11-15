@@ -11,7 +11,6 @@ const Reviews = () => {
         fetch("https://peaceful-ravine-05762.herokuapp.com/reviews")
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setReviews(data.reverse())
             })
     }, [])

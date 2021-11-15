@@ -16,7 +16,7 @@ const Reviewspage = ({ review }) => {
         <>
             <Grid className="my-5  " item xs={12} sm={6} md={4} >
                 <Card style={{ height: "290px", background: "#CEF6F5" }}>
-                    <div class="card-header">{name}</div>
+                    <div className="card-header">{name}</div>
 
                     <Box style={{ height: "65%", padding: "10px 0" }}>
                         <Box className="w-50 mx-auto" style={{ display: "flex" }}>

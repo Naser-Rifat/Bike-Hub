@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const MakeAdmin = () => {
 
-    const [success, setSucess] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [email, setEmail] = useState('')
 
 
@@ -27,7 +27,13 @@ const MakeAdmin = () => {
         })
 
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+
+                if (data.modifiedCount > 0) {
+                    setSuccess("success fully add")
+                }
+                console.log(data)
+            })
 
 
     }

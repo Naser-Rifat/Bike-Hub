@@ -66,7 +66,7 @@ const MyOrders = () => {
                                 <TableCell sx={{ width: 200 }} align="left">{row.email}</TableCell>
                                 <TableCell sx={{ width: 50 }} align="center">
                                     {
-                                        row.status === 200 ? <Button className="" sx={{ color: "green" }}>Shipted</Button>
+                                        row.status === 200 ? <Button sx={{ color: "green" }}>Shipted</Button>
                                             : <Button sx={{ color: "#FF8C00" }}> Pending</Button>
                                     }
 
@@ -87,33 +87,6 @@ const MyOrders = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {/* <Typography className="my-3" variant="h4">My Orders</Typography>
-
-            {
-                orderData.map(order =>
-                    <div key={order._id} className="card mb-3" style={{ maxWidth: "90%" }}>
-                        <div className="row g-0">
-                            <div className="col-md-4">
-                                <img src={order.img} className="w-50 rounded-start" alt="..." />
-                            </div>
-                            <div className="col-md-6   ">
-                                <div className="card-body text-start">
-                                    <h6 className="card-text my-2">Model: <span>{order.model}</span> </h6>
-                                    <h6 className="card-text me-2">Price: <span>{order.price}</span></h6>
-                                    {
-                                        order.status === 200 ? <Button disabled variant="contained">Delete</Button> : <Button onClick={() => handleDelete(order._id)} sx={{ background: "#B21807" }} variant="contained">Delete</Button>
-                                    }
-                                    {
-                                        order.status === 200 ? <Button className="" sx={{ mx: 2, color: "green" }}>Shipted</Button>
-                                            : <Button sx={{ mx: 2, color: "#FF8C00" }}> Pending</Button>
-                                    }
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>)
-            } */}
 
         </div >
     );
