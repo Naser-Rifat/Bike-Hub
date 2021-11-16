@@ -12,7 +12,7 @@ const ManageAllOrderes = () => {
     const [orderData, setOrderData] = useState([]);
 
     useEffect(() => {
-        const uri = `https://peaceful-ravine-05762.herokuapp.com/orders`
+        const uri = `https://peaceful-ravine-05762.herokuapp.com/orders/all`
         fetch(uri)
             .then(res => res.json())
             .then(data => setOrderData(data))
