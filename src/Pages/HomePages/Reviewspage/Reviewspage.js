@@ -20,7 +20,7 @@ const Reviewspage = ({ review }) => {
 
                     <Box style={{ height: "65%", padding: "10px 0" }}>
                         <Box className="w-50 mx-auto" style={{ display: "flex" }}>
-                            <img className="rounded-circle w-25 mx-auto" src={img} alt="No_Image"
+                            <img className="rounded-circle w-25 mx-auto" src={img ? img : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9tG_NFfmLde3aA3q3p2yib1KJslRRNlJQg&usqp=CAU"} alt="No_Image"
                                 onError={event => {
                                     event.target.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9tG_NFfmLde3aA3q3p2yib1KJslRRNlJQg&usqp=CAU"
                                     event.onerror = null
