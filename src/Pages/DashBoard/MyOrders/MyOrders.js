@@ -17,7 +17,7 @@ const MyOrders = () => {
         fetch(`https://peaceful-ravine-05762.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrderData(data))
-    }, [])
+    }, [user?.email])
 
     const handleDelete = (id) => {
         const procced = window.confirm("You would like to delete?")
@@ -41,7 +41,7 @@ const MyOrders = () => {
         <div>
 
             <TableContainer component={Paper}>
-                <Typography className="my-3" variant="h4">Manage orders</Typography>
+                <Typography className="my-3" variant="h4">My orders</Typography>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>

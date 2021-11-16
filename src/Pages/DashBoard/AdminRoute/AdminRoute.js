@@ -3,14 +3,19 @@ import { Redirect, Route } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 
 
-
 const AdminRoute = ({ children, ...rest }) => {
-
     const { user, isLoading, admin } = useAuth();
+
+
     if (isLoading) {
         return <CircularProgress />
     }
+
+
     return (
+
+
+
         <Route
             {...rest}
             render={({ location }) =>
@@ -26,6 +31,7 @@ const AdminRoute = ({ children, ...rest }) => {
 
             }
         />
+
     );
 }
 

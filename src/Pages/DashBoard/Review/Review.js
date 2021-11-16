@@ -1,4 +1,4 @@
-import { Grid, Typography, Button, Container } from "@mui/material";
+import { Grid, Typography, Button, Container, Alert } from "@mui/material";
 import React, { useState } from "react";
 import axios from 'axios';
 import { useForm } from "react-hook-form";
@@ -9,19 +9,13 @@ import useAuth from "../../../hooks/useAuth";
 
 const Review = () => {
     const [value, setValue] = useState(1);
+    const { user, setSuccess, success } = useAuth()
+
 
     console.log(value)
 
-    // const labels = {
 
-    //     1: ' ',
-    //     2: '',
-    //     3: '',
-    //     4: '',
-    //     5: '',
-    // };
 
-    const { user } = useAuth()
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
@@ -33,6 +27,7 @@ const Review = () => {
             .then(res => {
                 console.log(res)
                 if (res.data.insertedId) {
+                    setSuccess("Successfull")
                     alert("inserted")
                 }
 
@@ -47,6 +42,9 @@ const Review = () => {
 
                 <Typography sx={{ mt: 5, mx: "auto", mr: 16 }} variant="h3"> Review</Typography>
                 <Grid container spacing={2}>
+                    {
+                        success && <Alert sx={{ mx: "auto", width: "60%", textAlign: "center" }} severity="success">Successfully Added</Alert>
+                    }
 
                     <Grid style={{ marginTop: "50px", margin: "40px auto" }} item xs={12} md={6}>
 

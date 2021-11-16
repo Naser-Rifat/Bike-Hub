@@ -1,6 +1,5 @@
 import { Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 
 const ManageProducts = () => {
     const [productsData, setProductsData] = useState([]);

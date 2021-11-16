@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
-import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid, Container } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Typography, Button, Grid } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
 import { Box } from '@mui/system';
 import Navigation from '../Shared/Navigation/Navigation';
@@ -22,7 +22,7 @@ const Details = () => {
         fetch(`https://peaceful-ravine-05762.herokuapp.com/cycles/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [id])
 
 
 

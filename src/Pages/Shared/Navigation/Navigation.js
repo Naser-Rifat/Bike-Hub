@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { Navbar } from 'react-bootstrap';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -22,7 +22,9 @@ const Navigation = () => {
                     <NavLink to="/home" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }} >Home</Button></NavLink>
                     <NavLink to="/explore" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }} >Explore</Button></NavLink>
 
-                    <NavLink to="/dashboard" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Dashboard</Button></NavLink>
+                    {
+                        user?.email && <NavLink to="/dashboard" style={{ textDecoration: "none" }}> <Button style={{ color: "white", }}>Dashboard</Button></NavLink>
+                    }
 
 
                     {

@@ -6,12 +6,12 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 initializeAuthentication()
 const useFirebase = () => {
 
+    const [admin, setAdmin] = useState(false);
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    // const [isLogin, setIsLogin] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [admin, setAdmin] = useState(false);
+
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -33,8 +33,7 @@ const useFirebase = () => {
                 setError(error.message);
 
             })
-            .finally(() => setIsLoading(false))
-            ;
+            .finally(() => setIsLoading(false));
     }
 
     // create an  user with email and password
@@ -115,9 +114,7 @@ const useFirebase = () => {
             .catch((error) => {
                 setError(error.message);
             })
-            .finally(() => setIsLoading(false))
-
-            ;
+            .finally(() => setIsLoading(false));
     }
 
     const saveUser = (email, name, method) => {
@@ -139,15 +136,15 @@ const useFirebase = () => {
 
         fetch(`https://peaceful-ravine-05762.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+            .then(data => {
+                console.log("data admin", data.admin)
+                setAdmin(data.admin)
+            })
             .catch((error) => {
                 setError(error.message);
             })
-            .finally(() => setIsLoading(false))
-
-            ;
-
     }, [user?.email])
+
 
 
 
@@ -160,9 +157,8 @@ const useFirebase = () => {
         success,
         logOut,
         isLoading,
-        // isLogin,
-        setSuccess,
         admin,
+        setSuccess,
         GoogleSignIn,
         setIsLoading
     }

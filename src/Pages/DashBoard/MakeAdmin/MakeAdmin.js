@@ -15,10 +15,10 @@ const MakeAdmin = () => {
         setEmail(e.target.value)
 
     }
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         const user = { email }
 
-        fetch("https://peaceful-ravine-05762.herokuapp.com/users/admin", {
+        fetch("http://localhost:5000/users/admin", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -34,6 +34,7 @@ const MakeAdmin = () => {
                 }
                 console.log(data)
             })
+        e.preventDefault()
 
 
     }

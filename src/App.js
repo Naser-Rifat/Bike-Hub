@@ -11,7 +11,6 @@ import {
 
 } from 'react-router-dom';
 import { NotFound } from 'http-errors';
-import AddProducts from './Pages/AddProducts/AddProducts';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Explore from './Pages/HomePages/Explore/Explore';
 import Details from './Pages/Details/Details';
