@@ -5,7 +5,7 @@
 In the project directory, you can run:
 
 
-### `Site-Name:` ## `BikeHub`
+### `Site-Name:`  `BikeHub`
    
 
 ### `Live-Link` https://bicycle-shop-121fb.web.app
