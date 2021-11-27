@@ -8,8 +8,7 @@ In the project directory, you can run:
 ## `Website-Name`
    # `BikeHub`
 
-### `WebSite-Link`
-
+### `Live-Link`
 [https://bicycle-shop-121fb.web.app]
 
 
