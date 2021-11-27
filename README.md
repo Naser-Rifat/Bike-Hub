@@ -9,7 +9,7 @@ In the project directory, you can run:
    # `BikeHub`
 
 ### `Live-Link`
-[https://bicycle-shop-121fb.web.app]
+https://bicycle-shop-121fb.web.app
 
 
 ## `Descrption`
