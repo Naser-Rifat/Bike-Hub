@@ -14,12 +14,7 @@ In the project directory, you can run:
 
 
 #### `Descrption`
-
-### `-Users can order bikes, write reviews and these will
-be stored in the database. The user also can delete
-orders`
-### `-Admin can add products, manage all products,
-manage all orders and also make admin too. `
-### `-Firebase authentication system added (user &
-admin)
+### `-Users can order bikes, write reviews and these will be stored in the database. The user also can delete orders`
+### `-Admin can add products, manage all products, manage all orders and also make admin too. `
+### `-Firebase authentication system added (user & admin)
 `
